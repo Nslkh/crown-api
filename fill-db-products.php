@@ -1,5 +1,7 @@
 <?php
 
+$config = require 'config.php';
+
 $categories = json_decode(file_get_contents('mock.json'), true);
 
 $connection = mysqli_connect($host = 'localhost', $user = 'root', $password = null, $database = 'crown_api', $port = 3306);
