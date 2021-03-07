@@ -17,23 +17,16 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 // var_dump($data);
 // echo "</pre>";
 
+$sql = "SELECT * FROM products WHERE category_id is 1";
+$categories = json_decode(file_get_contents('mock.json'), true);
 $result = [];
 
 foreach ($data as $category_id => $category) {
-    $category['items'] = [
+    $category['items'] =[
+        
+    ];
 
-        "id" => 1,
-        "img" =>"https://hosty.xxx/i/327d7a8b22217603d651476aed3ab739a4cbde78.jpg",
-        "name"=>"Adidas NMD",
-        "price"=>"$120",
-    ];
-    [
     
-        "id" => 2,
-        "img" =>"https://hosty.xxx/i/6260f27fba190108d1405100a4e47a9abc7dfdc9.jpg",
-        "name"=>"Adidas Yeezy ",
-        "price"=>"$50",
-    ];
     $result[] = $category;
 }
 
