@@ -17,16 +17,17 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 // var_dump($data);
 // echo "</pre>";
 
-$sql = "SELECT * FROM products WHERE category_id is 1";
-$categories = json_decode(file_get_contents('mock.json'), true);
+
+
 $result = [];
 
 foreach ($data as $category_id => $category) {
-    $category['items'] =[
-        
-    ];
+    $sql = "SELECT * FROM products WHERE category_id = ' " . $category['id'] . "'";
 
-    
+    $query = mysqli_query($connection, $sql);
+    $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+    $category['items'] = $data;
     $result[] = $category;
 }
 
